@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Merriweather:ital,wght@0,300;0,700;1,300&family=Noto+Sans+JP:wght@300;400;500;700&display=swap');
+
+:root {
+    --japan-red: #bc002d;
+    --ink-black: #1e293b;
+    --paper: #fdfbf7;
+    --gold: #d4af37;
+    --blue-indigo: #1e3a8a;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--paper);
+    color: var(--ink-black);
+    margin: 0;
+    line-height: 1.6;
+}
+
+.jp-font { font-family: 'Noto Sans JP', sans-serif; }
+.serif { font-family: 'Merriweather', serif; }
+
+/* Layout Containers */
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.lesson-header { text-align: center; margin-bottom: 3rem; padding: 2rem 0; border-bottom: 2px solid #e2e8f0; }
+
+/* Cards */
+.card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+
+/* Interactive Elements */
+.btn {
+    background: var(--ink-black);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: background 0.2s;
+}
+.btn:hover { background: var(--japan-red); }
+.btn-outline { background: transparent; border: 2px solid var(--ink-black); color: var(--ink-black); }
+.btn-outline:hover { background: var(--ink-black); color: white; }
+
+/* Audio Button */
+.audio-btn {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: #f1f5f9; color: var(--blue-indigo);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; border: 1px solid #cbd5e1;
+    transition: transform 0.1s;
+}
+.audio-btn:active { transform: scale(0.9); }
+
+/* Progress Bar */
+.progress-container { width: 100%; background: #e2e8f0; height: 6px; position: fixed; top: 0; left: 0; z-index: 100; }
+.progress-bar { height: 100%; background: var(--japan-red); width: 0%; transition: width 0.5s; }
+
+/* Utility */
+.hidden { display: none; }
+.fade-in { animation: fadeIn 0.5s ease-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }

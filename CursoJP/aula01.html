@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula 01 - Estrutura</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'samurai-red': '#bc002d', 'paper': '#fdfbf7', 'ink': '#1e293b' }, fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'], jp: ['Noto Sans JP', 'sans-serif'] } } } }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;600;800&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-paper text-ink font-sans">
+
+    <nav class="p-6 border-b border-gray-200 bg-white/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-gray-500 hover:text-samurai-red font-bold flex items-center gap-2 transition">
+                <i class="fas fa-arrow-left"></i> Voltar ao Mapa
+            </a>
+            <span class="text-xs font-bold uppercase tracking-widest text-red-600 bg-red-50 px-3 py-1 rounded-full">Gramática</span>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto p-6 pb-32">
+        
+        <!-- Hero Section -->
+        <div class="bg-white rounded-2xl p-8 shadow-sm border border-gray-200 mb-10">
+            <h1 class="text-4xl font-serif font-bold mb-6 text-ink">Capítulo 1: A Mente Japonesa</h1>
+            <p class="text-lg text-gray-600 leading-relaxed mb-4">
+                Esqueça a ordem do português (Eu como pão). No Japão, o verbo é o rei e ele exige ser o último a falar.
+            </p>
+            <p class="text-lg text-gray-600 leading-relaxed mb-6">
+                A estrutura é <strong>SOV</strong>: Sujeito ➔ Objeto ➔ Verbo. <br>
+                <em>"Eu pão como."</em>
+            </p>
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-4 rounded text-blue-900 text-sm font-semibold">
+                💡 Regra de Ouro: Nada acontece até o final da frase. O verbo decide se é passado, presente, afirmação ou negação.
+            </div>
+        </div>
+
+        <!-- Partículas Interativas -->
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2">
+            <i class="fas fa-tags text-gray-400"></i> As Partículas (Colas)
+        </h2>
+        <div class="grid md:grid-cols-2 gap-4 mb-12">
+            
+            <!-- WA -->
+            <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-red-500 cursor-pointer transition group shadow-sm" onclick="playTTS('Watashi wa')">
+                <div class="flex justify-between items-start">
+                    <span class="text-4xl font-bold text-red-500 font-jp mb-2">は (WA)</span>
+                    <i class="fas fa-volume-up text-gray-300 group-hover:text-red-500"></i>
+                </div>
+                <h3 class="font-bold text-lg">O Holofote</h3>
+                <p class="text-sm text-gray-500 mb-3">Indica o tópico. "Quanto a isso..."</p>
+                <div class="text-xs font-mono bg-gray-100 p-2 rounded text-gray-600">
+                    Watashi <strong>wa</strong>... (Quanto a mim...)
+                </div>
+            </div>
+
+            <!-- NO -->
+            <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-blue-500 cursor-pointer transition group shadow-sm" onclick="playTTS('Watashi no hon')">
+                <div class="flex justify-between items-start">
+                    <span class="text-4xl font-bold text-blue-500 font-jp mb-2">の (NO)</span>
+                    <i class="fas fa-volume-up text-gray-300 group-hover:text-blue-500"></i>
+                </div>
+                <h3 class="font-bold text-lg">Posse / Conexão</h3>
+                <p class="text-sm text-gray-500 mb-3">Conecta dois substantivos. O "De/Do".</p>
+                <div class="text-xs font-mono bg-gray-100 p-2 rounded text-gray-600">
+                    Watashi <strong>no</strong> hon (Livro <strong>de</strong> eu)
+                </div>
+            </div>
+
+            <!-- DESU -->
+            <div class="bg-white p-6 rounded-xl border border-gray-200 hover:border-green-500 cursor-pointer transition group shadow-sm md:col-span-2" onclick="playTTS('Tanaka desu')">
+                <div class="flex justify-between items-start">
+                    <span class="text-4xl font-bold text-green-500 font-jp mb-2">です (DESU)</span>
+                    <i class="fas fa-volume-up text-gray-300 group-hover:text-green-500"></i>
+                </div>
+                <h3 class="font-bold text-lg">A Afirmação Polida</h3>
+                <p class="text-sm text-gray-500 mb-3">Não é exatamente um verbo, é uma cópula. Diz "É isso" com educação.</p>
+                <div class="text-xs font-mono bg-gray-100 p-2 rounded text-gray-600">
+                    Tanaka <strong>desu</strong> (Sou Tanaka / É o Tanaka)
+                </div>
+            </div>
+        </div>
+
+        <!-- Game Section -->
+        <div class="bg-slate-900 text-white rounded-3xl p-8 text-center shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-red-500 to-blue-500"></div>
+            
+            <h3 class="text-2xl font-bold mb-2">Desafio do Samurai</h3>
+            <p class="text-gray-400 mb-8 text-sm">Monte a frase: <strong class="text-white">"Isto é meu livro."</strong></p>
+            
+            <!-- Drop Zone -->
+            <div id="drop-zone" class="min-h-[70px] bg-slate-800/50 border-2 border-dashed border-slate-600 rounded-xl mb-6 flex flex-wrap items-center justify-center gap-2 p-2">
+                <span class="text-slate-500 text-sm italic pointer-events-none">Clique nas palavras abaixo...</span>
+            </div>
+
+            <!-- Word Bank -->
+            <div id="word-bank" class="flex flex-wrap justify-center gap-3 mb-8">
+                <button onclick="addWord('Kore wa', this)" class="bg-white text-slate-900 px-4 py-2 rounded-lg font-bold hover:bg-red-500 hover:text-white transition transform active:scale-95 shadow-lg">Kore wa</button>
+                <button onclick="addWord('Desu', this)" class="bg-white text-slate-900 px-4 py-2 rounded-lg font-bold hover:bg-red-500 hover:text-white transition transform active:scale-95 shadow-lg">Desu</button>
+                <button onclick="addWord('Watashi', this)" class="bg-white text-slate-900 px-4 py-2 rounded-lg font-bold hover:bg-red-500 hover:text-white transition transform active:scale-95 shadow-lg">Watashi</button>
+                <button onclick="addWord('no', this)" class="bg-white text-slate-900 px-4 py-2 rounded-lg font-bold hover:bg-red-500 hover:text-white transition transform active:scale-95 shadow-lg">no</button>
+                <button onclick="addWord('Hon', this)" class="bg-white text-slate-900 px-4 py-2 rounded-lg font-bold hover:bg-red-500 hover:text-white transition transform active:scale-95 shadow-lg">Hon</button>
+            </div>
+
+            <div id="feedback" class="hidden p-4 rounded-xl font-bold mb-4 animate-bounce"></div>
+
+            <button onclick="location.reload()" class="text-xs text-gray-500 underline hover:text-white transition">Reiniciar Exercício</button>
+        </div>
+
+        <!-- Next Module Button -->
+        <div class="mt-12 flex justify-end">
+            <a href="aula02.html" id="next-btn" class="hidden bg-samurai-red text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-red-700 transition flex items-center gap-3">
+                Ir para Aula 02 <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <script src="global.js"></script>
+    <script>
+        let stack = [];
+        
+        function addWord(word, btn) {
+            stack.push(word);
+            btn.classList.add('opacity-50', 'pointer-events-none'); // Disable button
+            renderStack();
+            
+            if(stack.length === 5) {
+                checkWin();
+            }
+        }
+
+        function renderStack() {
+            const zone = document.getElementById('drop-zone');
+            // Clear placeholder
+            if(stack.length === 1) zone.innerHTML = '';
+            
+            // Add last added word
+            const lastWord = stack[stack.length - 1];
+            const span = document.createElement('span');
+            span.className = "bg-blue-600 text-white px-3 py-1 rounded-lg font-bold text-sm animate-pulse";
+            span.innerText = lastWord;
+            zone.appendChild(span);
+        }
+
+        function checkWin() {
+            const attempt = stack.join(' ');
+            const correct = "Kore wa Watashi no Hon Desu";
+            const feed = document.getElementById('feedback');
+            
+            feed.classList.remove('hidden');
+            
+            if(attempt === correct) {
+                feed.textContent = "Perfeito! (Isto é meu livro)";
+                feed.className = "bg-green-500 text-white p-4 rounded-xl font-bold mb-4 block";
+                playTTS('Kore wa watashi no hon desu');
+                
+                // Save progress
+                saveProgress('aula1', 100);
+                document.getElementById('next-btn').classList.remove('hidden');
+            } else {
+                feed.textContent = "A lógica está errada. Lembre-se: Tópico -> Detalhe -> Verbo.";
+                feed.className = "bg-red-500 text-white p-4 rounded-xl font-bold mb-4 block";
+                setTimeout(() => location.reload(), 2000);
+            }
+        }
+    </script>
+</body>
+</html>

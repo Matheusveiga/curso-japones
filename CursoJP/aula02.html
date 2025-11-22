@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula 02 - Escrita</title>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'samurai-red': '#bc002d', 'paper': '#fdfbf7', 'ink': '#1e293b' }, fontFamily: { sans: ['Inter', 'sans-serif'], serif: ['Merriweather', 'serif'], jp: ['Noto Sans JP', 'sans-serif'] } } } }
+    </script>
+    <link href="[https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;600;800&family=Merriweather:wght@700&display=swap](https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Inter:wght@400;600;800&family=Merriweather:wght@700&display=swap)" rel="stylesheet">
+    <link href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css)" rel="stylesheet">
+</head>
+<body class="bg-paper text-ink font-sans">
+
+    <nav class="p-6 border-b border-gray-200 bg-white/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="text-gray-500 hover:text-blue-600 font-bold flex items-center gap-2 transition">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+            <span class="text-xs font-bold uppercase tracking-widest text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Escrita</span>
+        </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto p-6 pb-32">
+        
+        <!-- Warning Box -->
+        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-xl mb-10 shadow-sm">
+            <h3 class="font-bold text-yellow-900 text-lg mb-2"><i class="fas fa-exclamation-triangle mr-2"></i> Perigo: Pronúncia</h3>
+            <p class="text-sm text-yellow-800 leading-relaxed">
+                1. <strong>Sem Bico no "U":</strong> Relaxe os lábios. É um som seco.<br>
+                2. <strong>Sons Longos (Chouon):</strong> Segurar uma vogal muda o significado da palavra.
+            </p>
+        </div>
+
+        <h1 class="text-3xl font-serif font-bold mb-6">As 5 Vogais Fundamentais</h1>
+        
+        <!-- Vowel Grid -->
+        <div class="grid grid-cols-5 gap-3 mb-12">
+            <button onclick="playTTS('A')" class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:scale-105 hover:border-blue-500 hover:shadow-md transition flex flex-col items-center">
+                <span class="text-4xl font-bold font-jp text-blue-600 mb-1">あ</span>
+                <span class="text-xs font-bold text-gray-400">A</span>
+            </button>
+            <button onclick="playTTS('I')" class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:scale-105 hover:border-blue-500 hover:shadow-md transition flex flex-col items-center">
+                <span class="text-4xl font-bold font-jp text-blue-600 mb-1">い</span>
+                <span class="text-xs font-bold text-gray-400">I</span>
+            </button>
+            <button onclick="playTTS('U')" class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:scale-105 hover:border-blue-500 hover:shadow-md transition flex flex-col items-center">
+                <span class="text-4xl font-bold font-jp text-blue-600 mb-1">う</span>
+                <span class="text-xs font-bold text-gray-400">U</span>
+            </button>
+            <button onclick="playTTS('E')" class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:scale-105 hover:border-blue-500 hover:shadow-md transition flex flex-col items-center">
+                <span class="text-4xl font-bold font-jp text-blue-600 mb-1">え</span>
+                <span class="text-xs font-bold text-gray-400">E</span>
+            </button>
+            <button onclick="playTTS('O')" class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:scale-105 hover:border-blue-500 hover:shadow-md transition flex flex-col items-center">
+                <span class="text-4xl font-bold font-jp text-blue-600 mb-1">お</span>
+                <span class="text-xs font-bold text-gray-400">O</span>
+            </button>
+        </div>
+
+        <!-- Long Sound Example -->
+        <h2 class="text-2xl font-bold mb-6 border-t pt-8 border-gray-200">O Poder do Som Longo</h2>
+        <div class="grid md:grid-cols-2 gap-6 mb-12">
+            
+            <!-- Short -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-400 transition cursor-pointer text-center group" onclick="playTTS('Obasan')">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Som Curto</span>
+                <div class="text-5xl font-bold text-ink mb-2 group-hover:text-blue-600 transition">Obasan</div>
+                <div class="text-2xl text-gray-400 font-jp mb-4">おばさん</div>
+                <span class="bg-blue-100 text-blue-800 text-sm font-bold px-4 py-1 rounded-full">Tia</span>
+            </div>
+
+            <!-- Long -->
+            <div class="bg-white p-8 rounded-2xl border border-gray-200 hover:border-red-400 transition cursor-pointer text-center group" onclick="playTTS('Obaasan')">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Som Longo (aa)</span>
+                <div class="text-5xl font-bold text-ink mb-2 group-hover:text-red-600 transition">Obaasan</div>
+                <div class="text-2xl text-gray-400 font-jp mb-4">おば<span class="text-red-500">あ</span>さん</div>
+                <span class="bg-red-100 text-red-800 text-sm font-bold px-4 py-1 rounded-full">Avó</span>
+            </div>
+        </div>
+
+        <!-- Quiz -->
+        <div class="bg-white border border-gray-200 rounded-2xl p-8 text-center shadow-lg">
+            <h3 class="text-xl font-bold mb-6">Quiz Rápido</h3>
+            
+            <div id="quiz-area">
+                <div id="kana-display" class="text-8xl font-bold font-jp text-ink mb-8">?</div>
+                <div id="options" class="grid grid-cols-3 gap-4 max-w-md mx-auto">
+                    <!-- JS injects buttons -->
+                </div>
+                <p id="result" class="mt-6 h-6 font-bold text-sm"></p>
+            </div>
+        </div>
+
+        <div class="mt-12 flex justify-end">
+            <a href="aula03.html" id="next-btn" class="hidden bg-blue-600 text-white px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-blue-700 transition flex items-center gap-3">
+                Ir para Aula 03 <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+
+    </main>
+
+    <script src="global.js"></script>
+    <script>
+        const questions = [
+            { k: 'あ', a: 'A', o: ['A', 'O', 'Nu'] },
+            { k: 'い', a: 'I', o: ['I', 'Ri', 'Ka'] },
+            { k: 'う', a: 'U', o: ['U', 'Shi', 'Tsu'] },
+            { k: 'え', a: 'E', o: ['E', 'H', 'Z'] },
+            { k: 'お', a: 'O', o: ['O', 'A', 'Wo'] }
+        ];
+        let curr = 0;
+
+        function loadQ() {
+            if(curr >= questions.length) {
+                document.getElementById('quiz-area').innerHTML = '<div class="text-green-600 font-bold text-2xl py-10">Módulo Concluído! 🎉</div>';
+                saveProgress('aula2', 100);
+                document.getElementById('next-btn').classList.remove('hidden');
+                return;
+            }
+
+            const q = questions[curr];
+            document.getElementById('kana-display').innerText = q.k;
+            playTTS(q.a); // Dica sonora
+
+            const optsDiv = document.getElementById('options');
+            optsDiv.innerHTML = '';
+            
+            // Shuffle
+            const shuffled = [...q.o].sort(() => Math.random() - 0.5);
+
+            shuffled.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "border-2 border-gray-200 py-3 rounded-xl font-bold text-gray-600 hover:bg-blue-500 hover:text-white hover:border-blue-500 transition";
+                btn.innerText = opt;
+                btn.onclick = () => check(opt, q.a);
+                optsDiv.appendChild(btn);
+            });
+        }
+
+        function check(sel, cor) {
+            const res = document.getElementById('result');
+            if(sel === cor) {
+                res.innerText = "Correto!";
+                res.className = "mt-6 h-6 font-bold text-sm text-green-600";
+                curr++;
+                setTimeout(() => {
+                    res.innerText = "";
+                    loadQ();
+                }, 800);
+            } else {
+                res.innerText = "Tente de novo...";
+                res.className = "mt-6 h-6 font-bold text-sm text-red-600";
+                playTTS('Chigau');
+            }
+        }
+
+        loadQ();
+    </script>
+</body>
+</html>
